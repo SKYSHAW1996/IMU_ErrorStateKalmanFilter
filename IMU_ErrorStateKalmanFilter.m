@@ -161,6 +161,7 @@ classdef IMU_ErrorStateKalmanFilter < handle
              obj.errorStates(obj.currentState+1).P = P -  K *(H*P*H'+ obj.noiseParam.V)*K';
          end
          %Calculate Measurement Jacobian
+         %Error Need to be Checked
          function [H,detZ] = calH(q,measurements)
              % Normalise magnetometer measurement
              if(norm(measurements.mag) == 0), return; end	% 
